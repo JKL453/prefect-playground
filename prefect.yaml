@@ -19,12 +19,14 @@ push: null
 # this project in remote locations
 pull:
 - prefect.deployments.steps.git_clone:
-    repository: "https://github.com/JKL453/prefect-playground.git"
+    id: clone_step
+    repository: https://github.com/JKL453/prefect-playground.git
     branch: main
 - prefect.deployments.steps.pip_install_requirements:
-    requirements_file: "{{ clone-step.directory }}/requirements.txt"
+    directory: "{{ clone_step.directory }}"
+    requirements_file: requirements.txt
 - prefect.deployments.steps.set_working_directory:
-    directory: "{{ clone_directory }}"
+    directory: "{{ clone_step.directory }}"
 
 # the deployments section allows you to provide configuration
 # for deploying flows
