@@ -19,7 +19,7 @@ push: null
 # this project in remote locations
 pull:
 - prefect.deployments.steps.set_working_directory:
-    directory: "add/path/to/your/project/here"
+    directory: "https://github.com/JKL453/prefect-playground/"
 
 # the deployments section allows you to provide configuration
 # for deploying flows
